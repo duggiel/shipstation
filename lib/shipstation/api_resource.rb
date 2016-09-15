@@ -1,4 +1,4 @@
-module ShipStation
+module Shipstation
     class ApiResource
 
         def self.class_name

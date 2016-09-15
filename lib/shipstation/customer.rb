@@ -1,5 +1,5 @@
-module ShipStation
+module Shipstation
     class Customer < ApiResource
-        extend ShipStation::APIOperations::List
+        extend Shipstation::APIOperations::List
     end
 end

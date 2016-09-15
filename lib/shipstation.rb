@@ -10,26 +10,26 @@ require 'shipstation/store'
 require 'shipstation/warehouse'
 require 'shipstation/product'
 
-module ShipStation
+module Shipstation
     API_BASE = "https://ssapi.shipstation.com/"
 
-    class ShipStationError < StandardError
+    class ShipstationError < StandardError
     end
 
-    class AuthenticationError < ShipStationError; end
-    class ConfigurationError < ShipStationError; end
+    class AuthenticationError < ShipstationError; end
+    class ConfigurationError < ShipstationError; end
 
     class << self
         def username
             defined? @username and @username or raise(
-                ConfigurationError, "ShipStation username not configured"
+                ConfigurationError, "Shipstation username not configured"
             )
         end
         attr_writer :username
 
         def password
             defined? @password and @password or raise(
-                ConfigurationError, "ShipStation password not configured"
+                ConfigurationError, "Shipstation password not configured"
             )
         end
         attr_writer :password

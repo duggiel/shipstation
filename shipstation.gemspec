@@ -10,8 +10,8 @@ Gem::Specification.new do |s|
   s.authors     = ["Tom Dallimore"]
   s.email       = ["me@tomdallimore.com"]
   s.homepage    = "TODO"
-  s.summary     = "An API wrapper for the ShipStation API"
-  s.description = "An API wrapper for the ShipStation API"
+  s.summary     = "An API wrapper for the Shipstation API"
+  s.description = "An API wrapper for the Shipstation API"
   s.license     = "MIT"
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]

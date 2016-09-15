@@ -1,6 +1,6 @@
 ## Overview
 
-An API wrapper for the ShipStation API.
+An API wrapper for the Shipstation API.
 
 ## Installation
 
@@ -16,13 +16,13 @@ Then run bundle to install the Gem:
 bundle install
 ```
 
-Set up an initializer file with your ShipStation API keys:
+Set up an initializer file with your Shipstation API keys:
 
 ```ruby
 require 'shipstation'
 
-ShipStation.username  = 'shipstation_api_key'
-ShipStation.password  = 'shipstation_api_secret'
+Shipstation.username  = 'shipstation_api_key'
+Shipstation.password  = 'shipstation_api_secret'
 ```
 
 ## Usage

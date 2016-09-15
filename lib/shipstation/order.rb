@@ -1,11 +1,11 @@
-module ShipStation
+module Shipstation
     class Order < ApiResource
-        extend ShipStation::APIOperations::List
-        extend ShipStation::APIOperations::Create
+        extend Shipstation::APIOperations::List
+        extend Shipstation::APIOperations::Create
 
         class << self
             def create_label params={}
-                response = ShipStation.request(:post, "orders/createlabelfororder", params)
+                response = Shipstation.request(:post, "orders/createlabelfororder", params)
                 
                 return response
             end

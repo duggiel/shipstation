@@ -1,10 +1,10 @@
-module ShipStation
+module Shipstation
     class Warehouse < ApiResource
-        include ShipStation::APIOperations::Create
+        include Shipstation::APIOperations::Create
 
         class << self
             def list
-                response = ShipStation.request(:get, 'warehouses')
+                response = Shipstation.request(:get, 'warehouses')
 
                 return response
             end
