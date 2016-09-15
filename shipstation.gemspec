@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.version     = Shipstation::VERSION
   s.authors     = ["Tom Dallimore"]
   s.email       = ["me@tomdallimore.com"]
-  s.homepage    = "TODO"
+  s.homepage    = "https://github.com/Jellyfishboy/shipstation"
   s.summary     = "An API wrapper for the Shipstation API"
   s.description = "An API wrapper for the Shipstation API"
   s.license     = "MIT"
