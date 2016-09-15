@@ -19,8 +19,6 @@ bundle install
 Set up an initializer file with your Shipstation API keys:
 
 ```ruby
-require 'shipstation'
-
 Shipstation.username  = 'shipstation_api_key'
 Shipstation.password  = 'shipstation_api_secret'
 ```
