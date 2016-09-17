@@ -1,6 +1,6 @@
 ## Overview
 
-A Ruby API wrapper for the Shipstation API.
+A Ruby wrapper for the Shipstation API.
 
 ## Installation
 
