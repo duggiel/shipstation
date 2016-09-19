@@ -9,7 +9,7 @@ A Ruby wrapper for the Shipstation API.
 Add module to your Gemfile:
 
 ```ruby
-gem 'shipstation', github: 'Jellyfishboy/shipstation', branch: 'master'
+gem 'shipstation'
 ```
 
 Then run bundle to install the Gem:
