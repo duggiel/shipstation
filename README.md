@@ -1,6 +1,8 @@
 ## Overview
 
-An API wrapper for the Shipstation API.
+A Ruby wrapper for the Shipstation API.
+
+*Please note, this gem is currently under construction. Use at your own risk when deploying to a production environment!*
 
 ## Installation
 
