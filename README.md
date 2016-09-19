@@ -26,6 +26,7 @@ Set up an initializer file with your Shipstation API keys:
 Shipstation.username  = 'shipstation_api_key'
 Shipstation.password  = 'shipstation_api_secret'
 ```
+e.g. *config/initializers/shipstation.rb*
 
 ## Usage
 
