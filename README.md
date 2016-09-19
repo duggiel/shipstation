@@ -27,7 +27,34 @@ Shipstation.password  = 'shipstation_api_secret'
 
 ## Usage
 
-Coming soon...
+Get all records for a source:
+
+```ruby
+Shipstation::Carrier.list
+Shipstation::Customer.list
+Shipstation::Order.list
+Shipstation::Product.list
+Shipstation::Shipment.list
+Shipstation::Store.list
+Shipstation::Warehouse.list
+```
+
+Create a new Order:
+
+```ruby
+Shipstation::Order.create(order_params)
+```
+
+Create a new Order Label:
+
+```ruby
+Shipstation::Order.create_label(order_label_params)
+```
+
+Create a new Warehouse:
+```ruby
+ShipStation::Warehouse.create(warehouse_params)
+```
 
 ## Versioning
 
