@@ -1,4 +1,6 @@
-## Overview
+## Shipstation
+
+[![Gem Version](https://badge.fury.io/rb/shipstation.svg)](https://badge.fury.io/rb/shipstation)
 
 A Ruby wrapper for the Shipstation API.
 
