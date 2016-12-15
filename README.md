@@ -63,7 +63,7 @@ ShipStation::Warehouse.create(warehouse_params)
 
 ## Versioning
 
-Trado PayPal module follows Semantic Versioning 2.0 as defined at
+Shipstation Ruby wrapper follows Semantic Versioning 2.0 as defined at
 <http://semver.org>.
 
 ## How to contribute
