@@ -2,6 +2,7 @@ module Shipstation
     class Order < ApiResource
         extend Shipstation::APIOperations::List
         extend Shipstation::APIOperations::Create
+        extend Shipstation::APIOperations::Retrieve
 
         class << self
             def create_label params={}

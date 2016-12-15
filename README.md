@@ -44,6 +44,16 @@ Shipstation::Store.list
 Shipstation::Warehouse.list
 ```
 
+Retrieve a record:
+
+```ruby
+Shipstation::Customer.retrieve(customer_id)
+Shipstation::Order.retrieve(order_id)
+Shipstation::Product.retrieve(product_id)
+Shipstation::Store.retrieve(store_id)
+Shipstation::Warehouse.retrieve(warehouse_id)
+```
+
 Create a new Order:
 
 ```ruby

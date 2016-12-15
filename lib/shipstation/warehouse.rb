@@ -1,6 +1,7 @@
 module Shipstation
     class Warehouse < ApiResource
-        include Shipstation::APIOperations::Create
+        extend Shipstation::APIOperations::Create
+        extend Shipstation::APIOperations::Retrieve
 
         class << self
             def list

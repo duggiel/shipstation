@@ -1,5 +1,6 @@
 require 'shipstation/api_operations/list'
 require 'shipstation/api_operations/create'
+require 'shipstation/api_operations/retrieve'
 
 require 'shipstation/api_resource'
 require 'shipstation/order'

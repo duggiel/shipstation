@@ -1,5 +1,6 @@
 module Shipstation
     class Store < ApiResource
+        extend Shipstation::APIOperations::Retrieve
 
         class << self
             def list
