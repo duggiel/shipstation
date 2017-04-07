@@ -1,6 +1,7 @@
 require 'shipstation/api_operations/list'
 require 'shipstation/api_operations/create'
 require 'shipstation/api_operations/retrieve'
+require 'shipstation/api_operations/update'
 
 require 'shipstation/api_resource'
 require 'shipstation/order'
@@ -42,13 +43,21 @@ module Shipstation
             defined? resource or raise(
                 ArgumentError, "Request resource has not been specified"
             )
+            if method == :get 
+                headers = { :accept => :json, content_type: :json }.merge({params: params})
+                payload = nil
+                puts headers
+            else
+                headers = { :accept => :json, content_type: :json }
+                payload = params
+            end
             RestClient::Request.new({
                 method: method,
                 url: API_BASE + resource,
                 user: Shipstation.username,
                 password: Shipstation.password,
-                payload: params,
-                headers: { :accept => :json, content_type: :json }
+                payload: payload.to_json,
+                headers: headers
             }).execute do |response, request, result|
                 JSON.parse(response.to_str)
             end
@@ -59,3 +68,6 @@ module Shipstation
         end
     end
 end
+
+# Shipstation.username = 9d5a864d104b49a293d3ff2601ac89b4
+# Shipstation.password = ba3adb5094aa45b8aac9b354c7c6912a
