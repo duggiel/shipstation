@@ -37,6 +37,14 @@ module Shipstation
         attr_writer :password
 
         def request method, resource, params={}
+            ss_username = params[:username] || Shipstation.username
+            ss_password = params[:password] || Shipstation.password
+
+            puts ss_password
+            puts ss_username
+
+            params.except!(:username, :password)
+
             defined? method or raise(
                 ArgumentError, "Request method has not been specified"
             )
@@ -54,8 +62,8 @@ module Shipstation
             RestClient::Request.new({
                 method: method,
                 url: API_BASE + resource,
-                user: Shipstation.username,
-                password: Shipstation.password,
+                user: ss_username,
+                password: ss_password,
                 payload: payload.to_json,
                 headers: headers
             }).execute do |response, request, result|
