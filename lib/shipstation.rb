@@ -40,9 +40,6 @@ module Shipstation
             ss_username = params[:username] || Shipstation.username
             ss_password = params[:password] || Shipstation.password
 
-            puts ss_password
-            puts ss_username
-
             params.except!(:username, :password)
 
             defined? method or raise(
@@ -54,7 +51,6 @@ module Shipstation
             if method == :get 
                 headers = { :accept => :json, content_type: :json }.merge({params: params})
                 payload = nil
-                puts headers
             else
                 headers = { :accept => :json, content_type: :json }
                 payload = params
