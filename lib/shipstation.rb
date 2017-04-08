@@ -60,7 +60,7 @@ module Shipstation
                 url: API_BASE + resource,
                 user: ss_username,
                 password: ss_password,
-                payload: payload.to_json,
+                payload: payload ? payload.to_json : nil,
                 headers: headers
             }).execute do |response, request, result|
                 JSON.parse(response.to_str)
