@@ -63,7 +63,8 @@ module Shipstation
                 payload: payload ? payload.to_json : nil,
                 headers: headers
             }).execute do |response, request, result|
-                JSON.parse(response.to_str)
+                str_response = response.to_str        
+                str_response.blank? ? '' : JSON.parse(str_response)
             end
         end
 
