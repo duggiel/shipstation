@@ -60,7 +60,7 @@ module Shipstation
                 url: API_BASE + resource,
                 user: ss_username,
                 password: ss_password,
-                payload: payload ? payload.to_json : nil,
+                payload: payload ? to_json_camelize(payload) : nil,
                 headers: headers
             }).execute do |response, request, result|
                 str_response = response.to_str        
@@ -70,6 +70,13 @@ module Shipstation
 
         def datetime_format datetime
             datetime.strftime("%Y-%m-%d %T")
+        end
+
+        def self.to_json_camelize hash
+            builder = Jbuilder.new
+            builder.key_format! camelize: :lower
+            builder.merge! hash
+            builder.target!
         end
     end
 end
