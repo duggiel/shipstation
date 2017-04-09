@@ -72,7 +72,7 @@ module Shipstation
             datetime.strftime("%Y-%m-%d %T")
         end
 
-        def self.to_json_camelize hash
+        def to_json_camelize hash
             builder = Jbuilder.new
             builder.key_format! camelize: :lower
             builder.merge! hash
