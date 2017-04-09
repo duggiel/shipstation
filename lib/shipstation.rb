@@ -75,7 +75,12 @@ module Shipstation
         def to_json_camelize hash
             builder = Jbuilder.new
             builder.key_format! camelize: :lower
-            builder.merge! hash
+            builder.({}) if hash.empty?
+           
+            hash.each do |key, value|
+                builder.set! key, value
+            end unless hash.empty?
+
             builder.target!
         end
     end
