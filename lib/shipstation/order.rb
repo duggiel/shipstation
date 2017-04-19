@@ -10,6 +10,12 @@ module Shipstation
                 
                 return response
             end
+
+            def assign_tag params={}
+                response = Shipstation.request(:post, "orders/addtag", params)
+                
+                return response
+            end
         end
     end
 end

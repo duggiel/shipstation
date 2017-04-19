@@ -42,6 +42,7 @@ Shipstation::Product.list
 Shipstation::Shipment.list
 Shipstation::Store.list
 Shipstation::Warehouse.list
+Shipstation::Tag.list
 ```
 
 Retrieve a record:
@@ -66,9 +67,15 @@ Create a new Order Label:
 Shipstation::Order.create_label(order_label_params)
 ```
 
+Assign Tag to an Order:
+
+```ruby
+Shipstation::Order.assign_tag(assign_tag_params)
+```
+
 Create a new Warehouse:
 ```ruby
-ShipStation::Warehouse.create(warehouse_params)
+Shipstation::Warehouse.create(warehouse_params)
 ```
 
 ## Versioning

@@ -10,6 +10,7 @@ require 'shipstation/carrier'
 require 'shipstation/store'
 require 'shipstation/warehouse'
 require 'shipstation/product'
+require 'shipstation/tag'
 
 module Shipstation
     API_BASE = "https://ssapi.shipstation.com/"
