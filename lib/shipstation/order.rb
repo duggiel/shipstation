@@ -11,6 +11,12 @@ module Shipstation
                 return response
             end
 
+            def assign_tag params={}
+                response = Shipstation.request(:post, "orders/addtag", params)
+                
+                return response
+            end
+          
             # params: { [:username], [:password], input: [ {:order_number, ... }, { :order_number, ... } ] }
             # todo: complete in future phase
             # def create_update_orders params 
