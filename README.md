@@ -32,7 +32,11 @@ e.g. *config/initializers/shipstation.rb*
 
 ## Usage
 
-Get all records for a source:
+This gem provides a collection of operations for use within the Shipstation API.
+
+### List
+
+List all records for a resource.
 
 ```ruby
 Shipstation::Carrier.list
@@ -45,7 +49,9 @@ Shipstation::Warehouse.list
 Shipstation::Tag.list
 ```
 
-Retrieve a record:
+### Retrieve
+
+Retrieve a single record of a resource.
 
 ```ruby
 Shipstation::Customer.retrieve(customer_id)
@@ -55,27 +61,37 @@ Shipstation::Store.retrieve(store_id)
 Shipstation::Warehouse.retrieve(warehouse_id)
 ```
 
-Create a new Order:
+### Create
+
+Create a single record of a resource.
 
 ```ruby
 Shipstation::Order.create(order_params)
+Shipstation::Warehouse.create(warehouse_params)
 ```
 
-Create a new Order Label:
+### Update
+
+Update a single record of a resource.
+
+```ruby
+Shipstation::Product.create(product_params)
+Shipstation::Store.create(store_params)
+Shipstation::Warehouse.create(warehouse_params)
+```
+
+Apart from the standard CRUD operations, there are also some custom operations for specific use cases.
+
+Create a new Order Label.
 
 ```ruby
 Shipstation::Order.create_label(order_label_params)
 ```
 
-Assign Tag to an Order:
+Assign Tag to an Order.
 
 ```ruby
 Shipstation::Order.assign_tag(assign_tag_params)
-```
-
-Create a new Warehouse:
-```ruby
-Shipstation::Warehouse.create(warehouse_params)
 ```
 
 ## Versioning

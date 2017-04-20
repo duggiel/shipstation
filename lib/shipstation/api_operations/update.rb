@@ -2,7 +2,7 @@ module Shipstation
   module APIOperations
    	module Update
 			
-			def update id, params={}
+			def update object_id, params={}
 				Shipstation.request(:put, "#{class_name.downcase.pluralize}/#{id}", params)
 			end
 			
