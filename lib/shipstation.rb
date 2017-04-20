@@ -1,3 +1,5 @@
+require 'rest-client'
+
 require 'shipstation/api_operations/list'
 require 'shipstation/api_operations/create'
 require 'shipstation/api_operations/retrieve'
