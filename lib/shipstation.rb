@@ -3,6 +3,7 @@ require 'rest-client'
 require 'shipstation/api_operations/list'
 require 'shipstation/api_operations/create'
 require 'shipstation/api_operations/retrieve'
+require 'shipstation/api_operations/update'
 
 require 'shipstation/api_resource'
 require 'shipstation/order'
@@ -39,21 +40,34 @@ module Shipstation
         attr_writer :password
 
         def request method, resource, params={}
+            ss_username = params[:username] || Shipstation.username
+            ss_password = params[:password] || Shipstation.password
+
+            params.except!(:username, :password)
+
             defined? method or raise(
                 ArgumentError, "Request method has not been specified"
             )
             defined? resource or raise(
                 ArgumentError, "Request resource has not been specified"
             )
+            if method == :get 
+                headers = { :accept => :json, content_type: :json }.merge({params: params})
+                payload = nil
+            else
+                headers = { :accept => :json, content_type: :json }
+                payload = params
+            end
             RestClient::Request.new({
                 method: method,
                 url: API_BASE + resource,
-                user: Shipstation.username,
-                password: Shipstation.password,
-                payload: params,
-                headers: { :accept => :json, content_type: :json }
+                user: ss_username,
+                password: ss_password,
+                payload: payload ? payload.to_json : nil,
+                headers: headers
             }).execute do |response, request, result|
-                JSON.parse(response.to_str)
+                str_response = response.to_str        
+                str_response.blank? ? '' : JSON.parse(str_response)
             end
         end
 

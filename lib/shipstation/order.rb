@@ -16,6 +16,12 @@ module Shipstation
                 
                 return response
             end
+          
+            # params: { [:username], [:password], input: [ {:order_number, ... }, { :order_number, ... } ] }
+            # todo: complete in future phase
+            # def create_update_orders params 
+            #     Shipstation.request(:post, "orders/createorders", params)
+            # end
         end
     end
 end
