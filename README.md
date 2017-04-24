@@ -73,9 +73,9 @@ Shipstation::Warehouse.create(warehouse_params)
 Update a single record of a resource.
 
 ```ruby
-Shipstation::Product.create(product_params)
-Shipstation::Store.create(store_params)
-Shipstation::Warehouse.create(warehouse_params)
+Shipstation::Product.update(product_params)
+Shipstation::Store.update(store_params)
+Shipstation::Warehouse.update(warehouse_params)
 ```
 
 Apart from the standard CRUD operations, there are also some custom operations for specific use cases.
