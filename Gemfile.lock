@@ -1,13 +1,13 @@
 PATH
   remote: .
   specs:
-    shipstation (0.3.2)
+    shipstation (0.12.1)
       rest-client (~> 2)
 
 GEM
   remote: https://rubygems.org/
   specs:
-    domain_name (0.5.20170404)
+    domain_name (0.5.20170223)
       unf (>= 0.0.5, < 1.0.0)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
@@ -28,3 +28,6 @@ PLATFORMS
 
 DEPENDENCIES
   shipstation!
+
+BUNDLED WITH
+   1.14.6
