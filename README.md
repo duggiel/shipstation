@@ -6,8 +6,6 @@ A Ruby wrapper for the Shipstation API.
 
 [Release Notes](http://release.tomdallimore.com/projects/shipstation)
 
-*Please note, this gem is currently under construction. Use at your own risk when deploying to a production environment!*
-
 ## Installation
 
 Add module to your Gemfile:
@@ -75,9 +73,9 @@ Shipstation::Warehouse.create(warehouse_params)
 Update a single record of a resource.
 
 ```ruby
-Shipstation::Product.create(product_params)
-Shipstation::Store.create(store_params)
-Shipstation::Warehouse.create(warehouse_params)
+Shipstation::Product.update(product_params)
+Shipstation::Store.update(store_params)
+Shipstation::Warehouse.update(warehouse_params)
 ```
 
 Apart from the standard CRUD operations, there are also some custom operations for specific use cases.
@@ -108,6 +106,6 @@ Shipstation Ruby wrapper follows Semantic Versioning 2.0 as defined at
 * Send a pull request against the *development* branch
 
 ## Copyright
-Copyright (c) 2016 [Tom Dallimore](http://www.tomdallimore.com/?utm_source=shipstation&utm_medium=website&utm_campaign=tomdallimore) ([@tom_dallimore](http://twitter.com/tom_dallimore))  
+Copyright (c) 2017 [Tom Dallimore](http://www.tomdallimore.com/?utm_source=shipstation&utm_medium=website&utm_campaign=tomdallimore) ([@tom_dallimore](http://twitter.com/tom_dallimore))  
 Licenced under the MIT licence.
 
