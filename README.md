@@ -106,6 +106,6 @@ Shipstation Ruby wrapper follows Semantic Versioning 2.0 as defined at
 * Send a pull request against the *development* branch
 
 ## Copyright
-Copyright (c) 2017 [Tom Dallimore](http://www.tomdallimore.com/?utm_source=shipstation&utm_medium=website&utm_campaign=tomdallimore) ([@tom_dallimore](http://twitter.com/tom_dallimore))  
+Copyright (c) 2018 [Tom Dallimore](http://www.tomdallimore.com/?utm_source=shipstation&utm_medium=website&utm_campaign=tomdallimore) ([@tom_dallimore](http://twitter.com/tom_dallimore))  
 Licenced under the MIT licence.
 
