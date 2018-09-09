@@ -80,16 +80,22 @@ Shipstation::Warehouse.update(warehouse_params)
 
 Apart from the standard CRUD operations, there are also some custom operations for specific use cases.
 
-Create a new Order Label.
+### Create a new Order Label.
 
 ```ruby
 Shipstation::Order.create_label(order_label_params)
 ```
 
-Assign Tag to an Order.
+### Assign Tag to an Order.
 
 ```ruby
 Shipstation::Order.assign_tag(assign_tag_params)
+```
+
+### Delete an Order
+
+```ruby
+Shipstation::Order.delete(order_id)
 ```
 
 ## Versioning
