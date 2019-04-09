@@ -98,6 +98,11 @@ Shipstation::Order.assign_tag(assign_tag_params)
 Shipstation::Order.delete(order_id)
 ```
 
+### Get Shipiment Rates
+```ruby
+Shipstation::Shipment.get_rates(get_rates_params)
+```
+
 ## Versioning
 
 Shipstation Ruby wrapper follows Semantic Versioning 2.0 as defined at
