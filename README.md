@@ -92,6 +92,12 @@ Shipstation::Order.create_label(order_label_params)
 Shipstation::Order.assign_tag(assign_tag_params)
 ```
 
+### Remove Tag from an Order.
+
+```ruby
+Shipstation::Order.remove_tag(remove_tag_params)
+```
+
 ### Delete an Order
 
 ```ruby
@@ -119,4 +125,3 @@ Shipstation Ruby wrapper follows Semantic Versioning 2.0 as defined at
 ## Copyright
 Copyright (c) 2018 [Tom Dallimore](http://www.tomdallimore.com/?utm_source=shipstation&utm_medium=website&utm_campaign=tomdallimore) ([@tom_dallimore](http://twitter.com/tom_dallimore))  
 Licenced under the MIT licence.
-
