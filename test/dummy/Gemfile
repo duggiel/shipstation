@@ -26,14 +26,13 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'ffi', '~> 1.9.24'
 gem 'sprockets', '~> 3.7.2'
 
-gem 'rest-client'    
-gem 'shipstation'     
+gem 'rest-client'
+gem 'shipstation'
 
- 
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-      
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
