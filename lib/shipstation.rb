@@ -19,13 +19,16 @@ require 'shipstation/product'
 require 'shipstation/tag'
 
 module Shipstation
-  API_BASE = 'https://ssapi.shipstation.com/'
+
+  API_BASE = "https://ssapi.shipstation.com/"
 
   class ShipstationError < StandardError
   end
 
-  class AuthenticationError < ShipstationError; end
-  class ConfigurationError < ShipstationError; end
+  class AuthenticationError < ShipstationError;
+  end
+  class ConfigurationError < ShipstationError;
+  end
   class ApiRequestError < ShipstationError
     attr_reader :response_code, :response_headers, :response_body
 
@@ -38,46 +41,48 @@ module Shipstation
 
   class << self
     def username
-      defined? @username && @username || raise(
-        ConfigurationError, 'Shipstation username not configured'
+      defined? @username and @username or raise(
+        ConfigurationError, "Shipstation username not configured"
       )
     end
+
     attr_writer :username
 
     def password
-      defined? @password && @password || raise(
-        ConfigurationError, 'Shipstation password not configured'
+      defined? @password and @password or raise(
+        ConfigurationError, "Shipstation password not configured"
       )
     end
+
     attr_writer :password
 
-    def request(method, resource, params = {})
+    def request method, resource, params = {}
       ss_username = params[:username] || Shipstation.username
       ss_password = params[:password] || Shipstation.password
 
       params.except!(:username, :password)
 
-      defined? method || raise(
-        ArgumentError, 'Request method has not been specified'
+      defined? method or raise(
+        ArgumentError, "Request method has not been specified"
       )
-      defined? resource || raise(
-        ArgumentError, 'Request resource has not been specified'
+      defined? resource or raise(
+        ArgumentError, "Request resource has not been specified"
       )
       if method == :get
-        headers = { accept: :json, content_type: :json }.merge(params: params)
+        headers = {:accept => :json, content_type: :json}.merge({params: params})
         payload = nil
       else
-        headers = { accept: :json, content_type: :json }
+        headers = {:accept => :json, content_type: :json}
         payload = params
       end
-      RestClient::Request.new(
-        method: method,
-        url: API_BASE + resource,
-        user: ss_username,
-        password: ss_password,
-        payload: payload ? payload.to_json : nil,
-        headers: headers
-      ).execute do |response, _request, _result|
+      RestClient::Request.new({
+                                method: method,
+                                url: API_BASE + resource,
+                                user: ss_username,
+                                password: ss_password,
+                                payload: payload ? payload.to_json : nil,
+                                headers: headers
+                              }).execute do |response, request, result|
         if response.code != 200
           raise ApiRequestError(
             response_code: response.code,
@@ -85,14 +90,13 @@ module Shipstation
             response_body: response.to_str
           )
         end
-
         str_response = response.to_str
         str_response.blank? ? '' : JSON.parse(str_response)
       end
     end
 
-    def datetime_format(datetime)
-      datetime.strftime('%Y-%m-%d %T')
+    def datetime_format datetime
+      datetime.strftime("%Y-%m-%d %T")
     end
   end
 end
