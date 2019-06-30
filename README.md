@@ -104,9 +104,14 @@ Shipstation::Order.remove_tag(remove_tag_params)
 Shipstation::Order.delete(order_id)
 ```
 
-### Get Shipiment Rates
+### Get Shipment Rates
 ```ruby
 Shipstation::Shipment.get_rates(get_rates_params)
+```
+
+### Create Shipment Label
+```ruby
+Shipstation::Shipment.create_label(create_label_params)
 ```
 
 ## Versioning
