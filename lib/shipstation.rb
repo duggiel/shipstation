@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rest-client'
 
 require 'shipstation/api_operations/list'
@@ -17,6 +19,7 @@ require 'shipstation/product'
 require 'shipstation/tag'
 
 module Shipstation
+
   API_BASE = "https://ssapi.shipstation.com/"
 
   class ShipstationError < StandardError
@@ -25,6 +28,15 @@ module Shipstation
   class AuthenticationError < ShipstationError;
   end
   class ConfigurationError < ShipstationError;
+  end
+  class ApiRequestError < ShipstationError
+    attr_reader :response_code, :response_headers, :response_body
+
+    def initialize(response_code:, response_headers:, response_body:)
+      @response_code = response_code
+      @response_headers = response_headers
+      @response_body = response_body
+    end
   end
 
   class << self
@@ -71,6 +83,13 @@ module Shipstation
                                 payload: payload ? payload.to_json : nil,
                                 headers: headers
                               }).execute do |response, request, result|
+        if response.code != 200
+          raise ApiRequestError(
+            response_code: response.code,
+            response_headers: response.headers,
+            response_body: response.to_str
+          )
+        end
         str_response = response.to_str
         str_response.blank? ? '' : JSON.parse(str_response)
       end
