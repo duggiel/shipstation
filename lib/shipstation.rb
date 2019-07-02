@@ -84,7 +84,7 @@ module Shipstation
                                 headers: headers
                               }).execute do |response, request, result|
         if response.code != 200
-          raise ApiRequestError(
+          raise ApiRequestError.new(
             response_code: response.code,
             response_headers: response.headers,
             response_body: response.to_str
