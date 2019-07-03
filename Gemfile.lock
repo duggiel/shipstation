@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    shipstation (0.16.5)
+    shipstation (0.16.6)
       rest-client (~> 2)
 
 GEM
