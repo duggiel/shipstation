@@ -114,6 +114,11 @@ Shipstation::Shipment.get_rates(get_rates_params)
 Shipstation::Shipment.create_label(create_label_params)
 ```
 
+### List Carrier Services
+```ruby
+Shipstation::Carrier.list_services(list_services_params)
+```
+
 ## Versioning
 
 Shipstation Ruby wrapper follows Semantic Versioning 2.0 as defined at
