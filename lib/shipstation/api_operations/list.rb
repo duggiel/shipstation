@@ -1,6 +1,6 @@
 module Shipstation
   module APIOperations
-    module  List
+    module List
 
       def list params = {}
         response = Shipstation.request(:get, class_name.downcase.pluralize, params)

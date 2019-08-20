@@ -1,13 +1,13 @@
 PATH
   remote: .
   specs:
-    shipstation (0.16.7)
+    shipstation (0.17.7)
       rest-client (~> 2)
 
 GEM
   remote: https://rubygems.org/
   specs:
-    domain_name (0.5.20180417)
+    domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
