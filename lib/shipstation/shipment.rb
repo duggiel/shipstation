@@ -4,15 +4,15 @@ module Shipstation
 
     class << self
       def get_rates(params = {})
-        response = Shipstation.request(:post, "shipments/getrates", params)
-
-        return response
+        Shipstation.request(:post, "shipments/getrates", params)
       end
 
       def create_label(params = {})
-        response = Shipstation.request(:post, 'shipments/createlabel', params)
+        Shipstation.request(:post, 'shipments/createlabel', params)
+      end
 
-        response
+      def void_label(params = {})
+        Shipstation.request(:post, 'shipments/voidlabel', params)
       end
     end
   end
