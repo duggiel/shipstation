@@ -86,7 +86,7 @@ Apart from the standard CRUD operations, there are also some custom operations f
 Shipstation::Order.create_label(order_label_params)
 ```
 
-### Void an new Order Label.
+### Void an Order Label.
 
 ```ruby
 Shipstation::Order.void_label(order_label_params)
