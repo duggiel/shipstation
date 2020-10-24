@@ -67,6 +67,13 @@ Create a single record of a resource.
 Shipstation::Order.create(order_params)
 Shipstation::Warehouse.create(warehouse_params)
 ```
+### Create Bulk
+
+Create a bulk records of a resource.
+
+```ruby
+Shipstation::Order.createbulk(order_params)
+```
 
 ### Update
 

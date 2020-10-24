@@ -26,6 +26,12 @@ module Shipstation
         response
       end
 
+      def create_bulk(params = {})
+        response = Shipstation.request(:post, 'orders/createorders', params)
+
+        response
+      end
+
       # params: { [:username], [:password], input: [ {:order_number, ... }, { :order_number, ... } ] }
       # todo: complete in future phase
       # def create_update_orders params
