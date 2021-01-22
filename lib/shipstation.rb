@@ -57,10 +57,9 @@ module Shipstation
     attr_writer :password
 
     def request method, resource, params = {}
-      ss_username = params[:username] || Shipstation.username
-      ss_password = params[:password] || Shipstation.password
+      ss_username = params.delete(:username) || Shipstation.username
+      ss_password = params.delete(:password) || Shipstation.password
 
-      params.except!(:username, :password)
       params = params[:input] if params[:input]
 
       defined? method or raise(
@@ -92,7 +91,7 @@ module Shipstation
           )
         end
         str_response = response.to_str
-        str_response.blank? ? '' : JSON.parse(str_response)
+        str_response.empty? ? '' : JSON.parse(str_response)
       end
     end
 
