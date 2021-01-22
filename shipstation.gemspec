@@ -18,4 +18,7 @@ Gem::Specification.new do |s|
   s.test_files = Dir["test/**/*"]
 
   s.add_dependency 'rest-client', '~> 2'
+
+  s.add_development_dependency 'rspec', '~> 3.10'
+  s.add_development_dependency 'webmock', '~> 3.11'
 end
