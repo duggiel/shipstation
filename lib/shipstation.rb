@@ -61,6 +61,7 @@ module Shipstation
       ss_password = params[:password] || Shipstation.password
 
       params.except!(:username, :password)
+      params = params[:input] if params[:input]
 
       defined? method or raise(
         ArgumentError, "Request method has not been specified"
