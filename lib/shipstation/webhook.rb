@@ -8,8 +8,8 @@ module Shipstation
         return response
       end
 
-      def unsubscribe(object_id)
-        response = Shipstation.request(:delete, "webhooks/#{object_id}")
+      def unsubscribe(object_id, params={})
+        response = Shipstation.request(:delete, "webhooks/#{object_id}", params)
 
         return response
       end

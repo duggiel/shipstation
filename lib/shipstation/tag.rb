@@ -2,8 +2,8 @@ module Shipstation
   class Tag < ApiResource
 
     class << self
-      def list
-        response = Shipstation.request(:get, 'accounts/listtags')
+      def list(params = {})
+        response = Shipstation.request(:get, 'accounts/listtags', params)
 
         return response
       end

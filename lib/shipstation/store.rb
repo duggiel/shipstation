@@ -5,8 +5,8 @@ module Shipstation
     extend Shipstation::APIOperations::Update
 
     class << self
-      def list
-        response = Shipstation.request(:get, 'stores')
+      def list(params = {})
+        response = Shipstation.request(:get, 'stores', params)
 
         return response
       end
