@@ -17,6 +17,7 @@ require 'shipstation/store'
 require 'shipstation/warehouse'
 require 'shipstation/product'
 require 'shipstation/tag'
+require 'shipstation/webhook'
 
 module Shipstation
 

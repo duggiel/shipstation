@@ -132,6 +132,16 @@ Shipstation::Shipment.create_label(create_label_params)
 Shipstation::Carrier.list_services(list_services_params)
 ```
 
+### Susbcribe to Webhook
+```ruby
+Shipstation::Webhook.subscribe(webhook_params)
+```
+
+### Unsusbcribe to Webhook
+```ruby
+Shipstation::Webhook.unsubscribe(webhook_id)
+```
+
 ## Versioning
 
 Shipstation Ruby wrapper follows Semantic Versioning 2.0 as defined at
