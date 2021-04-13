@@ -1,5 +1,6 @@
 module Shipstation
   class Webhook < ApiResource
+    extend Shipstation::APIOperations::List
 
     class << self
       def subscribe(params={})
