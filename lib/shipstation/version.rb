@@ -1,3 +1,3 @@
 module Shipstation
-  VERSION = "0.24"
+  VERSION = "0.25"
 end

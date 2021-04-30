@@ -6,7 +6,6 @@ module Shipstation
     extend Shipstation::APIOperations::Create
     extend Shipstation::APIOperations::Retrieve
     extend Shipstation::APIOperations::Delete
-    extend Shipstation::APIOperations::Shipment
 
     class << self
       def create_label(params = {})
