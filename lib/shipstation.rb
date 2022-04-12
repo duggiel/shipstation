@@ -63,12 +63,6 @@ module Shipstation
 
       params.except!(:username, :password)
 
-      defined? method or raise(
-        ArgumentError, "Request method has not been specified"
-      )
-      defined? resource or raise(
-        ArgumentError, "Request resource has not been specified"
-      )
       if method == :get
         headers = {:accept => :json, content_type: :json}.merge({params: params})
         payload = nil
