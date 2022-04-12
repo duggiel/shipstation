@@ -88,9 +88,5 @@ module Shipstation
         str_response.blank? ? '' : JSON.parse(str_response)
       end
     end
-
-    def datetime_format datetime
-      datetime.strftime("%Y-%m-%d %T")
-    end
   end
 end
