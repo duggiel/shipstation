@@ -20,23 +20,21 @@ require 'shipstation/tag'
 require 'shipstation/webhook'
 
 module Shipstation
+  API_BASE = 'https://ssapi.shipstation.com/'
 
-  API_BASE = "https://ssapi.shipstation.com/"
+  class ShipstationError < StandardError; end
 
-  class ShipstationError < StandardError
-  end
+  class AuthenticationError < ShipstationError; end
 
-  class AuthenticationError < ShipstationError;
-  end
-  class ConfigurationError < ShipstationError;
-  end
+  class ConfigurationError < ShipstationError; end
+
   class ApiRequestError < ShipstationError
     attr_reader :response_code, :response_headers, :response_body
 
     def initialize(response_code:, response_headers:, response_body:)
       @response_code = response_code
       @response_headers = response_headers
-      @response_body = response_body
+      super(response_body)
     end
   end
 
@@ -77,10 +75,43 @@ module Shipstation
                                 password: ss_password,
                                 payload: payload ? payload.to_json : nil,
                                 headers: headers
-                              }).execute do |response, request, result|
-        str_response = response.to_str
-        str_response.blank? ? '' : JSON.parse(str_response)
+                              }).execute do |response, _request, _result|
+        parse_response response
       end
+    end
+
+    private
+
+    def headers method, params
+      result = {:accept => :json, content_type: :json}
+      return result unless method == :get
+
+      result.merge({params: params})
+    end
+
+    def payload method, params
+      params.to_json unless method == :get
+    end
+
+    def parse_response response
+      body = response.to_str
+      return request_error(response, body) unless successful_response?(response)
+
+      JSON.parse(body)
+    rescue JSON::ParserError
+      body
+    end
+
+    def request_error response, body
+      raise ApiRequestError.new(
+        response_code: response.code,
+        response_headers: response.headers,
+        response_body: body
+      )
+    end
+
+    def successful_response? response
+      (200..299).include? response.code
     end
   end
 end
