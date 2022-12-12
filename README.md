@@ -39,6 +39,7 @@ List all records for a resource.
 ```ruby
 Shipstation::Carrier.list
 Shipstation::Customer.list
+Shipstation::Fulfillment.list
 Shipstation::Order.list
 Shipstation::Product.list
 Shipstation::Shipment.list
@@ -53,6 +54,7 @@ Retrieve a single record of a resource.
 
 ```ruby
 Shipstation::Customer.retrieve(customer_id)
+Shipstation::Fulfillment.retrieve(fulfillment_id)
 Shipstation::Order.retrieve(order_id)
 Shipstation::Product.retrieve(product_id)
 Shipstation::Store.retrieve(store_id)
