@@ -41,6 +41,8 @@ module Shipstation
   end
 
   class << self
+    attr_accessor :partner_id
+
     def username
       defined? @username and @username or raise(
         ConfigurationError, "Shipstation username not configured"
@@ -60,8 +62,9 @@ module Shipstation
     def request method, resource, params = {}
       ss_username = params[:username] || Shipstation.username
       ss_password = params[:password] || Shipstation.password
+      ss_partner_id = params[:partner_id] || Shipstation.partner_id
 
-      params.except!(:username, :password)
+      params.except!(:username, :password, :partner_id)
 
       defined? method or raise(
         ArgumentError, "Request method has not been specified"
@@ -70,10 +73,10 @@ module Shipstation
         ArgumentError, "Request resource has not been specified"
       )
       if method == :get
-        headers = {:accept => :json, content_type: :json}.merge({params: params})
+        headers = default_headers(ss_partner_id).merge({params: params})
         payload = nil
       else
-        headers = {:accept => :json, content_type: :json}
+        headers = default_headers(ss_partner_id)
         payload = params
       end
       RestClient::Request.new({
@@ -91,6 +94,14 @@ module Shipstation
 
     def datetime_format datetime
       datetime.strftime("%Y-%m-%d %T")
+    end
+
+    private
+
+    def default_headers(partner_id = nil)
+      {:accept => :json, content_type: :json}.tap do |headers|
+        headers[:"x-partner"] = partner_id if partner_id
+      end
     end
   end
 end

@@ -28,6 +28,12 @@ Shipstation.password  = 'shipstation_api_secret'
 ```
 e.g. *config/initializers/shipstation.rb*
 
+If you have a Shipstation Partner ID, you can also supply that to reduce rate
+limiting:
+```ruby
+Shipstation.partner_id = 'abcdef01-2345-6789-0abc-def012345678'
+```
+
 ## Usage
 
 This gem provides a collection of operations for use within the Shipstation API.
@@ -156,5 +162,5 @@ Shipstation Ruby wrapper follows Semantic Versioning 2.0 as defined at
 * Send a pull request against the *development* branch
 
 ## Copyright
-Copyright (c) 2020 [Tom Dallimore](http://www.tomdallimore.com/?utm_source=shipstation&utm_medium=website&utm_campaign=tomdallimore) ([@tom_dallimore](http://twitter.com/tom_dallimore))  
+Copyright (c) 2020 [Tom Dallimore](http://www.tomdallimore.com/?utm_source=shipstation&utm_medium=website&utm_campaign=tomdallimore) ([@tom_dallimore](http://twitter.com/tom_dallimore))
 Licenced under the MIT licence.
