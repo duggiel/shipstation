@@ -6,8 +6,6 @@ A Ruby wrapper for the Shipstation API.
 
 [Release Notes](http://release.tomdallimore.com/projects/shipstation)
 
-*Please note, this gem is currently under construction. Use at your own risk when deploying to a production environment!*
-
 ## Installation
 
 Add module to your Gemfile:
@@ -32,11 +30,16 @@ e.g. *config/initializers/shipstation.rb*
 
 ## Usage
 
-Get all records for a source:
+This gem provides a collection of operations for use within the Shipstation API.
+
+### List
+
+List all records for a resource.
 
 ```ruby
 Shipstation::Carrier.list
 Shipstation::Customer.list
+Shipstation::Fulfillment.list
 Shipstation::Order.list
 Shipstation::Product.list
 Shipstation::Shipment.list
@@ -45,37 +48,100 @@ Shipstation::Warehouse.list
 Shipstation::Tag.list
 ```
 
-Retrieve a record:
+### Retrieve
+
+Retrieve a single record of a resource.
 
 ```ruby
 Shipstation::Customer.retrieve(customer_id)
+Shipstation::Fulfillment.retrieve(fulfillment_id)
 Shipstation::Order.retrieve(order_id)
 Shipstation::Product.retrieve(product_id)
 Shipstation::Store.retrieve(store_id)
 Shipstation::Warehouse.retrieve(warehouse_id)
 ```
 
-Create a new Order:
+### Create
+
+Create a single record of a resource.
 
 ```ruby
 Shipstation::Order.create(order_params)
+Shipstation::Warehouse.create(warehouse_params)
+```
+### Create Bulk
+
+Create a bulk records of a resource.
+
+```ruby
+Shipstation::Order.createbulk(order_params)
 ```
 
-Create a new Order Label:
+### Update
+
+Update a single record of a resource.
+
+```ruby
+Shipstation::Product.update(product_params)
+Shipstation::Store.update(store_params)
+Shipstation::Warehouse.update(warehouse_params)
+```
+
+Apart from the standard CRUD operations, there are also some custom operations for specific use cases.
+
+### Create a new Order Label.
 
 ```ruby
 Shipstation::Order.create_label(order_label_params)
 ```
 
-Assign Tag to an Order:
+### Void an Order Label.
+
+```ruby
+Shipstation::Order.void_label(order_label_params)
+```
+
+### Assign Tag to an Order.
 
 ```ruby
 Shipstation::Order.assign_tag(assign_tag_params)
 ```
 
-Create a new Warehouse:
+### Remove Tag from an Order.
+
 ```ruby
-Shipstation::Warehouse.create(warehouse_params)
+Shipstation::Order.remove_tag(remove_tag_params)
+```
+
+### Delete an Order
+
+```ruby
+Shipstation::Order.delete(order_id)
+```
+
+### Get Shipment Rates
+```ruby
+Shipstation::Shipment.get_rates(get_rates_params)
+```
+
+### Create Shipment Label
+```ruby
+Shipstation::Shipment.create_label(create_label_params)
+```
+
+### List Carrier Services
+```ruby
+Shipstation::Carrier.list_services(list_services_params)
+```
+
+### Susbcribe to Webhook
+```ruby
+Shipstation::Webhook.subscribe(webhook_params)
+```
+
+### Unsusbcribe to Webhook
+```ruby
+Shipstation::Webhook.unsubscribe(webhook_id)
 ```
 
 ## Versioning
@@ -92,6 +158,5 @@ Shipstation Ruby wrapper follows Semantic Versioning 2.0 as defined at
 * Send a pull request against the *development* branch
 
 ## Copyright
-Copyright (c) 2016 [Tom Dallimore](http://www.tomdallimore.com/?utm_source=shipstation&utm_medium=website&utm_campaign=tomdallimore) ([@tom_dallimore](http://twitter.com/tom_dallimore))  
+Copyright (c) 2020 [Tom Dallimore](http://www.tomdallimore.com/?utm_source=shipstation&utm_medium=website&utm_campaign=tomdallimore) ([@tom_dallimore](http://twitter.com/tom_dallimore))  
 Licenced under the MIT licence.
-
