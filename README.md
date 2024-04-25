@@ -4,8 +4,6 @@
 
 A Ruby wrapper for the Shipstation API.
 
-[Release Notes](http://release.tomdallimore.com/projects/shipstation)
-
 ## Installation
 
 Add module to your Gemfile:
